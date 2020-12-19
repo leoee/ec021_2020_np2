@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Next, Request, Response } from 'restify'
+import env from '../../config/env'
 
 class AuthMiddleware {
 	public async validateToken(req: Request, res: Response, next: Next): Promise<Response> {
@@ -13,7 +14,7 @@ class AuthMiddleware {
 		}
 
 		try {
-			await axios.post(`${process.env.AUTH_URL}/validateToken`, {}, config)
+			await axios.post(`${env.authUrl}/validateToken`, {}, config)
 			next()
 		} catch ({ response }) {
 			return res.json(response.status, response.data)

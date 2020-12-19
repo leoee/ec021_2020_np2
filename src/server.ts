@@ -2,14 +2,15 @@ import { createServer, plugins } from 'restify'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import setupRoutes from './app/routes'
+import env from './config/env'
 
 class Server {
 	private initDatabase(): void {
-		mongoose.connect(process.env.DB_URL, {
+		mongoose.connect(env.dbUrl, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useFindAndModify: false,
-			dbName: process.env.DB_NAME
+			dbName: env.dbName
 		})
 	}
 
@@ -21,7 +22,7 @@ class Server {
 
 		setupRoutes(server)
 
-		server.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}`))
+		server.listen(env.port, () => console.log(`Server running on ${env.port}`))
 	}
 
 	public start(): void {
@@ -35,6 +36,4 @@ class Server {
 }
 
 dotenv.config()
-
 new Server().start()
-
