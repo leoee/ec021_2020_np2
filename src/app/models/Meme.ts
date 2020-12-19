@@ -4,11 +4,11 @@ const MemeSchema = new Schema(
 	{
 		titulo: String,
 		descricao: String,
-		ano: Number,
+		ano: Number
 	},
 	{
-		timestamps: true,
+		timestamps: true
 	}
 );
 
-export default model('Meme', MemeSchema)
+export default model('Meme', MemeSchema);

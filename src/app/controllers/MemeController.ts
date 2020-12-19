@@ -1,58 +1,54 @@
+import { Request, Response } from 'restify'
 import Meme from '../models/Meme';
-import dotenv from 'dotenv';
 
 class MemeController {
-
-	public async create (req: any, res: any): Promise<any> {
+	public async create (req: Request, res: Response): Promise<Response> {
 		try {
-			const response = await Meme.create(req.body);
-			return res.json(201, response);
+			const meme = await Meme.create(req.body);
+			return res.json(201, meme);
 		} catch (error) {
-			return res.json(400, { error: "Error during meme creation.", message: error });
+			return res.json(400, { error: "Error during meme creating.", message: error });
 		}
 	}
 
-	public async update (req: any, res: any): Promise<any> {
+	public async update (req: Request, res: Response): Promise<Response> {
 		try {
-			const { memeId } = req.params
-			const response = await Meme.findByIdAndUpdate(memeId, req.body);
-			return res.json(200, response);
+			const { memeId } = req.params;
+			const meme = await Meme.findByIdAndUpdate(memeId, req.body, { new: true });
+			return res.json(200, meme);
 		} catch (error) {
-			return res.json(400, { error: "Error during meme update.", message: error });
+			return res.json(400, { error: "Error during meme updating.", message: error });
 		}
 	}
 
-	public async load (req: any, res: any): Promise<any> {
+	public async load (_: Request, res: Response): Promise<Response> {
 		try {
-			const response = await Meme.find();
-			return res.json(200, response);
+			const memes = await Meme.find();
+			return res.json(200, memes);
 		} catch (error) {
-			return res.json(400, { error: "Error during meme loading." });
+			return res.json(400, { error: "Error during memes loading.", message: error });
 		}
 	}
 
-	public async loadById (req: any, res: any): Promise<any> {
+	public async loadById (req: Request, res: Response): Promise<Response> {
 		try {
-			const { memeId } = req.params
-			const response = await Meme.findById(memeId);
-			return res.json(200, response);
+			const { memeId } = req.params;
+			const meme = await Meme.findById(memeId);
+			return res.json(200, meme);
 		} catch (error) {
-			return res.json(400, { error: "Error during meme loading." });
+			return res.json(400, { error: "Error during meme loading.", message: error });
 		}
 	}
 
-	public async delete (req: any, res: any): Promise<any> {
+	public async delete (req: Request, res: Response): Promise<Response> {
 		try {
-			const { memeId } = req.params
-			const response = await Meme.findOneAndDelete(memeId);
+			const { memeId } = req.params;
+			await Meme.findByIdAndDelete(memeId);
 			return res.json(204);
 		} catch (error) {
-			return res.json(400, { error: "Error during meme deleting." });
+			return res.json(400, { error: "Error during meme deleting.", message: error });
 		}
 	}
-	
 }
-
-dotenv.config()
 
 export default new MemeController()

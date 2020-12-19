@@ -1,20 +1,10 @@
+import { Server } from 'restify'
 import { Router } from 'restify-router';
-import dotenv from 'dotenv';
 import AuthController from '../controllers/AuthController';
 
-class AuthRoutes {
-  public routes: Router;
+export default (server: Server): void => {
+    const router = new Router()
 
-  public constructor () {
-    this.routes = new Router();
-    this.setRoutes()
-  }
-
-  private setRoutes (): void {
-    this.routes.post('/login', AuthController.login)
-  }
+    router.post('/login', AuthController.login)
+    router.applyRoutes(server, '/auth')
 }
-
-dotenv.config()
-
-export default new AuthRoutes().routes
