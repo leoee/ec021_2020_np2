@@ -1,6 +1,7 @@
 import { Request, Response } from 'restify'
 import Meme from '../models/Meme'
 
+// MemeController export all method to handle a Meme. Create, Update, Load, LoadById and Delete.
 class MemeController {
 	public async create (req: Request, res: Response): Promise<Response> {
 		try {

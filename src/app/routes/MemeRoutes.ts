@@ -3,6 +3,7 @@ import { Router } from 'restify-router'
 import MemeController from '../controllers/MemeController'
 import AuthMiddleware from '../middlewares/AuthMiddleware'
 
+//Exporting Meme routes
 export default (server: Server): void => {
     const router = new Router()
   

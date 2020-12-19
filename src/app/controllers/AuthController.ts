@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Request, Response } from 'restify'
 import env from '../../config/env'
+// AuthController export login method to login on the application
 class AuthController {
 	public async login(req: Request, res: Response): Promise<Response> {
 		try {

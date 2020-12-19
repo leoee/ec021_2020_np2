@@ -2,6 +2,7 @@ import axios from 'axios'
 import { Next, Request, Response } from 'restify'
 import env from '../../config/env'
 
+// Middleware to valid token on the header
 class AuthMiddleware {
 	public async validateToken(req: Request, res: Response, next: Next): Promise<Response> {
 		const { token } = req.headers

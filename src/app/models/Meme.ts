@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose'
 
+// Meme model
 const MemeSchema = new Schema(
 	{
 		titulo: String,
