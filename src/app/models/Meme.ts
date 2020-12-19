@@ -9,6 +9,6 @@ const MemeSchema = new Schema(
 	{
 		timestamps: true
 	}
-);
+)
 
-export default model('Meme', MemeSchema);
+export default model('Meme', MemeSchema)

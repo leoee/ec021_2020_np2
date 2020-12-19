@@ -1,6 +1,6 @@
 import { Server } from 'restify'
-import { Router } from 'restify-router';
-import AuthController from '../controllers/AuthController';
+import { Router } from 'restify-router'
+import AuthController from '../controllers/AuthController'
 
 export default (server: Server): void => {
     const router = new Router()

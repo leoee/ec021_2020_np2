@@ -1,15 +1,15 @@
 import { Server } from 'restify'
-import { Router } from 'restify-router';
-import MemeController from '../controllers/MemeController';
-import AuthController from '../controllers/AuthController';
+import { Router } from 'restify-router'
+import MemeController from '../controllers/MemeController'
+import AuthMiddleware from '../middlewares/AuthMiddleware'
 
 export default (server: Server): void => {
-    const router = new Router();
+    const router = new Router()
   
-    router.post('/meme', AuthController.validateToken, MemeController.create);
-    router.patch('/meme/:memeId', AuthController.validateToken, MemeController.update);
-    router.get('/meme', AuthController.validateToken, MemeController.load);
-    router.get('/meme/:memeId', AuthController.validateToken, MemeController.loadById);
-    router.del('/meme/:memeId', AuthController.validateToken, MemeController.delete);
-    router.applyRoutes(server);
+    router.post('/meme', AuthMiddleware.validateToken, MemeController.create)
+    router.patch('/meme/:memeId', AuthMiddleware.validateToken, MemeController.update)
+    router.get('/meme', AuthMiddleware.validateToken, MemeController.load)
+    router.get('/meme/:memeId', AuthMiddleware.validateToken, MemeController.loadById)
+    router.del('/meme/:memeId', AuthMiddleware.validateToken, MemeController.delete)
+    router.applyRoutes(server)
 }
