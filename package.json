@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
