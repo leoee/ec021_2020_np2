@@ -1,5 +1,9 @@
 # NP2 EC021 - Core Server
 
+## Team
+
+- [Flávio Brusamolin](https://github.com/flavio-brusamolin)
+- [Leonardo Eufrazio](https://github.com/leoee)
 ## Prerequisites
 
 - Docker Engine
