@@ -10,15 +10,15 @@
 
 ## Technologies
 
-- [Node](http://nodejs.org)
-- [Restify](https://www.npmjs.com/package/restify)
-- [Restify Router](https://www.npmjs.com/package/restify-router)
-- [Mongoose](https://www.npmjs.com/package/mongoose)
-- [Axios](https://www.npmjs.com/package/axios)
-- [Dotenv](https://www.npmjs.com/package/dotenv)
-- [Typescript](https://www.npmjs.com/package/typescript)
-- [Ts Node Dev](https://www.npmjs.com/package/ts-node-dev)
-- [Rimraf](https://www.npmjs.com/package/rimraf)
+- [Node](http://nodejs.org): JavaScript runtime
+- [Restify](https://www.npmjs.com/package/restify): Framework to build REST APIs.
+- [Restify Router](https://www.npmjs.com/package/restify-router): Allows users to define your routes using a Router interface that is identical to how routes are registered on a restify server.
+- [Mongoose](https://www.npmjs.com/package/mongoose): MongoDB object modeling tool designed to work in an asynchronous environment.
+- [Axios](https://www.npmjs.com/package/axios): Promise based HTTP client for the browser and Node.js.
+- [Dotenv](https://www.npmjs.com/package/dotenv): Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
+- [Typescript](https://www.npmjs.com/package/typescript): TypeScript is a language for application-scale JavaScript.
+- [Ts Node Dev](https://www.npmjs.com/package/ts-node-dev): Tweaked version of node-dev that uses ts-node under the hood.
+- [Rimraf](https://www.npmjs.com/package/rimraf): It's an executable that is used to clean the installed node packages in a node based project.
 
 
 ## Installation
